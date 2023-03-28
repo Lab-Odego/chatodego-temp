@@ -1,3 +1,5 @@
+# Local Directory that downloaded pre-trained models - C:\Users\...\.cache\huggingface\hub
+
 import copy
 import logging
 import os
