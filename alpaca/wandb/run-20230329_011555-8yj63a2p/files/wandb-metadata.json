@@ -1,0 +1,50 @@
+{
+    "os": "Windows-10-10.0.19044-SP0",
+    "python": "3.9.16",
+    "heartbeatAt": "2023-03-28T16:15:56.151443",
+    "startedAt": "2023-03-28T16:15:55.198312",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\82109\\Desktop\\code_repos\\odego\\alpaca\\train.py",
+    "codePath": "alpaca\\train.py",
+    "git": {
+        "remote": "https://github.com/sjinwoo/odego.git",
+        "commit": "3106ed9b53afb6f63062ab09ca46dc18042f02cf"
+    },
+    "email": "sjw5953@naver.com",
+    "root": "C:/Users/82109/Desktop/code_repos/odego",
+    "host": "DESKTOP-C18S15Q",
+    "username": "82109",
+    "executable": "C:\\Users\\82109\\python\\anaconda3\\envs\\python39\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 3701.0,
+        "min": 0.0,
+        "max": 3701.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3701.0,
+            "min": 0.0,
+            "max": 3701.0
+        }
+    ],
+    "disk": {
+        "total": 931.4619102478027,
+        "used": 253.81683731079102
+    },
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060 Ti",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 31.909564971923828
+    }
+}

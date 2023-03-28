@@ -1,0 +1,21 @@
+
+
+
+  0%|                                                                                                       | 2/18609 [00:18<53:54:46, 10.43s/it]Traceback (most recent call last):
+  File "C:\Users\82109\Desktop\code_repos\odego\alpaca\train.py", line 222, in <module>
+    train()
+  File "C:\Users\82109\Desktop\code_repos\odego\alpaca\train.py", line 216, in train
+    trainer.train()
+  File "C:\Users\82109\python\anaconda3\envs\python39\lib\site-packages\transformers\trainer.py", line 1543, in train
+    return inner_training_loop(
+  File "C:\Users\82109\python\anaconda3\envs\python39\lib\site-packages\transformers\trainer.py", line 1791, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "C:\Users\82109\python\anaconda3\envs\python39\lib\site-packages\transformers\trainer.py", line 2539, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "C:\Users\82109\python\anaconda3\envs\python39\lib\site-packages\transformers\trainer.py", line 2571, in compute_loss
+    outputs = model(**inputs)
+  File "C:\Users\82109\python\anaconda3\envs\python39\lib\site-packages\torch\nn\modules\module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\Users\82109\python\anaconda3\envs\python39\lib\site-packages\transformers\models\opt\modeling_opt.py", line 949, in forward
+    shift_logits = logits[..., :-1, :].contiguous()
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 784.00 MiB (GPU 0; 8.00 GiB total capacity; 6.67 GiB already allocated; 0 bytes free; 7.18 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
