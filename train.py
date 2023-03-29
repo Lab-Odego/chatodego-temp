@@ -14,6 +14,9 @@ from transformers import Trainer
 import utils
 
 ROOT_PATH = "C:\\Users\\82109\\Desktop\\code_repos\\odego"
+
+MODEL_PATH = "decapoda-research/llama-7b-hf"
+DATA_PATH = os.path.join(ROOT_PATH, '\\dataset\\ko_alpaca_data.json')
 OUTPUT_DIR = ROOT_PATH
 
 IGNORE_INDEX = -100
@@ -37,15 +40,17 @@ PROMPT_DICT = {
     ),
 }
 
-
+# Path of model
 @dataclass
 class ModelArguments:
     model_name_or_path: Optional[str] = field(default="facebook/opt-125m")
 
+# Path of dataset
 @dataclass
 class DataArguments:
     data_path: str = field(default=None, metadata={"help": "Path to the training data."})
 
+# ???
 @dataclass
 class TrainingArguments(transformers.TrainingArguments):
     cache_dir: Optional[str] = field(default=None)
@@ -183,9 +188,9 @@ def make_supervised_data_module(tokenizer: transformers.PreTrainedTokenizer, dat
 # train function
 def train():
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments))
-    model_args, data_args, training_args = parser.parse_args_into_dataclasses(['--output_dir', ROOT_PATH, 
-                                                                               '--data_path', ROOT_PATH+'\\dataset\\ko_alpaca_data.json'])
-
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses(['--model_name_or_path', MODEL_PATH,
+                                                                               '--output_dir', ROOT_PATH, 
+                                                                               '--data_path', DATA_PATH])
     model = transformers.AutoModelForCausalLM.from_pretrained(
         model_args.model_name_or_path,
         cache_dir=training_args.cache_dir,
