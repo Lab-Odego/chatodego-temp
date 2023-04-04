@@ -1,8 +1,11 @@
+# study % test of Syntax
 
-import torch
-from transformers import LlamaForCausalLM, LlamaTokenizer
+def add(a: int, b: int):
+    '''Function of Add'''
+    return a + b
 
-tokenizer = LlamaTokenizer.from_pretrained("../KoAlpaca/")
-model = LlamaForCausalLM.from_pretrained("../KoAlpaca/")
+def main():
+    return add(10, 2.0)
 
-model.generate(**tokenizer('안녕하세요?', return_tensors='pt'))
+if __name__ == '__main__':
+    print(main())
