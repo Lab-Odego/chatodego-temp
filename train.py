@@ -53,6 +53,9 @@ class DataArguments:
 # Parser Arguments - Using args for training
 @dataclass
 class TrainingArguments(transformers.TrainingArguments):
+    """
+    Input Arguments using for training.
+    """
     cache_dir: Optional[str] = field(default=None)
     optim: str = field(default="adamw_torch")
     model_max_length: int = field(
@@ -60,7 +63,7 @@ class TrainingArguments(transformers.TrainingArguments):
         metadata={"help": "Maximum sequence length. Sequences will be right padded (and possibly truncated)."},
     )
 
-# Save model's states
+# Save - model's states
 def safe_save_model_for_hf_trainer(trainer: transformers.Trainer, output_dir: str):
     """Collects the state dict and dump to disk."""
     # 모델의 weight를 dictionary 형태로 저장
@@ -72,13 +75,14 @@ def safe_save_model_for_hf_trainer(trainer: transformers.Trainer, output_dir: st
         # 가중치를 저장함.
         trainer._save(output_dir, state_dict=cpu_state_dict)  # noqa
 
+# Resize - Tokenizer & Embedding
 def smart_tokenizer_and_embedding_resize(
     special_tokens_dict: Dict,
     tokenizer: transformers.PreTrainedTokenizer,
     model: transformers.PreTrainedModel,
 ):
-    """Resize tokenizer and embedding.
-
+    """
+    Resize tokenizer and embedding.
     Note: This is the unoptimized version that may make your embedding size not be divisible by 64.
     """
     num_new_tokens = tokenizer.add_special_tokens(special_tokens_dict)
@@ -95,7 +99,9 @@ def smart_tokenizer_and_embedding_resize(
         output_embeddings[-num_new_tokens:] = output_embeddings_avg
 
 def _tokenize_fn(strings: Sequence[str], tokenizer: transformers.PreTrainedTokenizer) -> Dict:
-    """Tokenize a list of strings."""
+    """
+    Tokenize a list of strings.
+    """
     tokenized_list = [
         tokenizer(
             text,
