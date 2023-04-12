@@ -201,10 +201,10 @@ def train():
                                                                                '--output_dir', ROOT_PATH, 
                                                                                '--data_path', DATA_PATH])
     
-    # model = transformers.AutoModelForCausalLM.from_pretrained(
-    #     model_args.model_name_or_path,
-    #     cache_dir=training_args.cache_dir,
-    # )
+    model = transformers.AutoModelForCausalLM.from_pretrained(
+        model_args.model_name_or_path,
+        cache_dir=training_args.cache_dir,
+    )
 
     # tokenizer = transformers.AutoTokenizer.from_pretrained(
     #     model_args.model_name_or_path,
