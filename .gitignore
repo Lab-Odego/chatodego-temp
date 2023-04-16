@@ -1,0 +1,5 @@
+.vscode
+node_modules
+_pycache_
+chrome_driver
+*.exe
