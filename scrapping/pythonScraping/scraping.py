@@ -18,7 +18,8 @@ from selenium.webdriver.common.by import By
 import re
 from csv import writer
 # csv = pd.read_csv("test_restaurant.csv")
-csv = pd.read_csv("busan_restaurant.csv")
+# csv = pd.read_csv("restaurant_csv/busan_restaurant.csv")
+csv = pd.read_csv("restaurant_csv_folder/busan_restaurant.csv")
 print(csv)
 print(type(csv))
 storName = csv['업소명']
