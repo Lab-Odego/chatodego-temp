@@ -33,11 +33,12 @@ json_data = {}
 # file_path = "./restaurants.json"
 file_path = "./test.csv"
 
-path = "C:/Users/Young/Desktop/scrapping/chrome_driver/"
-
+# path = "C:/Users/Young/Desktop/scrapping/pythonScraping/chrome_driver/"
+path = "C:/Users/Young/Desktop/Young/10.sideproject/odego/scrapping/pythonScraping"
+        # C:\Users\Young\Desktop\Young\10.sideproject\odego\scrapping\pythonScraping\chrome_driver
 options = webdriver.ChromeOptions()
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
-driver = webdriver.Chrome(executable_path=path + "chromedriver.exe", options=options)
+driver = webdriver.Chrome(executable_path=path + "/chrome_driver/chromedriver.exe", options=options)
 
 def correctName(name, location):
     if "점" not in name:
@@ -177,7 +178,7 @@ for idx, storeNAME in enumerate(storName):
         menus_dic1 = findMenu(driver)
         temp.append(menus_dic1)
 
-        with open("output.csv", mode='a', newline='') as file:
+        with open("output1.csv", mode='a', newline='') as file:
             wr = writer(file)
             wr.writerow(temp)
             
