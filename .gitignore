@@ -1,0 +1,9 @@
+.vscode
+node_modules
+_pycache_
+chrome_driver
+*.exe
+places.json
+4.26.1
+api_key.txt
+faiss-nj
