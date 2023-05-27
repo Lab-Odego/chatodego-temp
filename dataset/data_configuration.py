@@ -2,7 +2,7 @@
 
 import json
 
-ko = json.load(open('.\\ko_alpaca_data.json', 'rt', encoding='UTF8'))
+ko = json.load(open('.\\KoAlpaca_v1.1.json', 'rt', encoding='UTF8'))
 en = json.load(open('.\\en_alpaca_data.json', 'rt', encoding='UTF8'))
 total = ko + en
 
