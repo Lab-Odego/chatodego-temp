@@ -24,6 +24,7 @@ class RestaurantScraper:
         csv_data = pd.read_csv(self.csv_path)
         # store_names = csv_data['업소명']
         store_names = csv_data['상호명']
+        category_name_from_CSV = csv_data['상권업종대분류명']
         
         options = webdriver.ChromeOptions()
         options.add_experimental_option("excludeSwitches", ["enable-logging"])
@@ -31,9 +32,13 @@ class RestaurantScraper:
         
         with open('output.csv', mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
-            writer.writerow(['Name', 'Category', 'Rate', 'Address', 'Time', 'Menu'])
+            # writer.writerow(['Name', 'Category', 'Rate', 'Address', 'Time', 'Menu', 'facility'])
+            writer.writerow(['상호명', '카테고리', '평점', '주소', '운영시간', '메뉴', '시설'])
         
             for idx, store_name in enumerate(store_names):
+                if category_name_from_CSV.iloc[idx] !='음식':
+                    continue
+                
                 # query = self.correct_name(store_name, "부산")
                 query = store_name
                 if type(csv_data['지점명'].iloc[idx]) == str:
@@ -42,7 +47,7 @@ class RestaurantScraper:
                 print(query)
                 temp = []
                 
-                if idx == 5:
+                if idx == 100:
                     break
                 
                 try:
@@ -69,6 +74,8 @@ class RestaurantScraper:
                     temp.append(time_info)
                     menu_info = self.find_menu()
                     temp.append(menu_info)
+                    facility_info = self.find_facility()
+                    temp.append(facility_info)
                     
                     writer.writerow(temp)
                     
@@ -82,12 +89,13 @@ class RestaurantScraper:
                     sleep(0.1)
                     pass
                 else:
-                    self.driver.close()
-                    self.driver.switch_to.window(self.driver.window_handles[-1])
-                finally:
-                    if idx>3:
+                    if idx>1:
                         self.driver.close()
                         self.driver.switch_to.window(self.driver.window_handles[-1])
+                # finally:
+                #     if idx>3:
+                #         self.driver.close()
+                #         self.driver.switch_to.window(self.driver.window_handles[-1])
     
     @staticmethod
     def correct_name(name, location):
@@ -164,6 +172,29 @@ class RestaurantScraper:
             menus_dict["null"] = "null"
         finally:
             return menus_dict
+        
+    def find_facility(self):
+        facility_dict = {}
+        try:
+            facility_list = self.driver.find_element(by=By.CLASS_NAME, value='list_facility')
+            facility_list = facility_list.find_elements(by=By.TAG_NAME, value='li')
+            for facility in facility_list:
+                facility_name = facility.find_element(by=By.CLASS_NAME, value='color_g').text
+                facility_status = "가능"
+                
+                try:
+                    facility_status = facility.find_element(by=By.CLASS_NAME, value='screen_out').text
+                except:
+                    pass
+                
+                facility_dict[facility_name] = facility_status
+                print("시설: {}, 상태: {}".format(facility_name, facility_dict[facility_name]))
+                          
+        except:
+            print("시설정보없음")
+            facility_dict["null"] = "null"
+        finally:
+            return facility_dict
         
 if __name__ == '__main__':
     common_path = "C:/Users/Young/Desktop/Young/10.sideproject/odego/scrapping/pythonScraping/"
