@@ -198,7 +198,7 @@ class RestaurantScraper:
         
 if __name__ == '__main__':
     common_path = "C:/Users/Young/Desktop/Young/10.sideproject/odego/scrapping/pythonScraping/"
-    csv_path = common_path+"Small_Business_Administration_csv_folder/busan_202209.csv"
+    csv_path = common_path+"Small_Business_Administration_csv_folder/busan_202209_01.csv"
     output_path = "output_2023_05_27.csv"
     driver_path = common_path + "chrome_driver/chromedriver.exe"
 
