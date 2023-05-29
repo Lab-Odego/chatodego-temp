@@ -47,8 +47,8 @@ class RestaurantScraper:
                 print(query)
                 temp = []
                 
-                if idx == 100:
-                    break
+                # if idx == 100:
+                #     break
                 
                 try:
                     kakao_map_search_url = f"https://map.kakao.com/?q={query}"
@@ -88,14 +88,14 @@ class RestaurantScraper:
                     self.driver.switch_to.window(self.driver.window_handles[-1])
                     sleep(0.1)
                     pass
-                else:
+                # else:
+                #     if idx>1:
+                #         self.driver.close()
+                #         self.driver.switch_to.window(self.driver.window_handles[-1])
+                finally:
                     if idx>1:
                         self.driver.close()
                         self.driver.switch_to.window(self.driver.window_handles[-1])
-                # finally:
-                #     if idx>3:
-                #         self.driver.close()
-                #         self.driver.switch_to.window(self.driver.window_handles[-1])
     
     @staticmethod
     def correct_name(name, location):
