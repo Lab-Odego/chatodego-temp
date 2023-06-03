@@ -1,4 +1,5 @@
-{"title":"사곶냉면","category":"냉면","address":"인천 옹진군 백령면 사곶로122번길 54-19","detailLink":"https://place.map.kakao.com/21226636"},
+[
+	{"title":"사곶냉면","category":"냉면","address":"인천 옹진군 백령면 사곶로122번길 54-19","detailLink":"https://place.map.kakao.com/21226636"},
 	{"title":"시골메밀칼국수","category":"칼국수","address":"인천 옹진군 백령면 백령로978번길 8-15","detailLink":"https://place.map.kakao.com/16714146"},
 	{"title":"소청도협동조합해변식당","category":"한식","address":"인천 옹진군 대청면 소청동로76번길 13","detailLink":"https://place.map.kakao.com/2123514517"},
 	{"title":"뚱이네맛집","category":"한식","address":"인천 옹진군 백령면 백령로 241","detailLink":"https://place.map.kakao.com/24925018"},
@@ -13674,5 +13675,6 @@
 	{"title":"수림식당","category":"해물,생선","address":"경기 김포시 하성면 하성로 430 1층","detailLink":"https://place.map.kakao.com/516950991"},
 	{"title":"정읍댁","category":"한식","address":"경기 김포시 하성면 월하로705번길 84","detailLink":"https://place.map.kakao.com/10714538"},
 	{"title":"동바누식당","category":"불고기,두루치기","address":"경기 김포시 통진읍 월하로 507 1층 102호","detailLink":"https://place.map.kakao.com/446140900"},
-	{"title":"민통선한식뷔페","category":"한식뷔페","address":"경기 김포시 하성면 월하로775번길 4","detailLink":"https://place.map.kakao.com/16598435"},
+	{"title":"민통선한식뷔페","category":"한식뷔페","address":"경기 김포시 하성면 월하로775번길 4","detailLink":"https://place.map.kakao.com/16598435"}
 	
+]
