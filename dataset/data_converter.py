@@ -29,3 +29,4 @@ with jsonlines.open(".\\KoAlpaca_v1.1.jsonl", 'r') as data:
 with open(".\\odego_data.json", 'w', encoding="utf-8") as file:
     json.dump(dataset, file, indent='\t', ensure_ascii=False)
 
+from langchain.chains.hyde.base import HypotheticalDocumentEmbedder
