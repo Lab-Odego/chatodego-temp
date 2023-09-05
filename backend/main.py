@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 import os
 import sys
@@ -7,14 +8,22 @@ from pydantic import BaseSettings
 from pyngrok import ngrok
 
 from routes import chatbot_router
+# import openai
 
 # Creating a FastAPI Object
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # can alter with time
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Connect to the ngrok server : line16 ~ line33
 class Settings(BaseSettings):
-    BASE_URL = "http://localhost:8000"
+    BASE_URL = "http://127.0.0.1:8000"
     USE_NGROK = os.environ.get("USE_NGROK", "False") == "True"
 
 
